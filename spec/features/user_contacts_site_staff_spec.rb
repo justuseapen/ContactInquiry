@@ -17,17 +17,17 @@ feature "Registered user logs in", %q{
     it "should save the contact inquiry" do
       visit '/inquiries'
 
-      click_on 'New inquiry'
+      click_on 'New Inquiry'
 
-      fill_in 'Email address', with: 'email@address.com'
+      fill_in 'Email', with: 'email@address.com'
       fill_in 'Subject', with: 'Sexy'
       fill_in 'Description', with: 'Too sexy for my pants'
       fill_in 'First name', with: 'Maria'
       fill_in 'Last name', with: 'Nopants'
 
-      click_on 'Save inquiry'
+      click_on 'Create Inquiry'
 
-      expect(page).to have_content('successfully saved')
+      expect(page).to have_content('successfully created')
     end
   end
 
