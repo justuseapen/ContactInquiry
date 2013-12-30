@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Registered user logs in", %q{
+feature "User adds contact inquiry", %q{
   As a site visitor
   I want to contact the site's staff
   So that I can tell them how awesome they are
@@ -28,6 +28,23 @@ feature "Registered user logs in", %q{
       click_on 'Create Inquiry'
 
       expect(page).to have_content('successfully created')
+    end
+  end
+
+  context "users enter bad info like a bitch." do
+    it "should return errors" do
+      visit '/inquiries'
+
+      click_on 'New Inquiry'
+
+      click_on 'Create Inquiry'
+
+      expect(page).to have_content("Email can't be blank")
+      expect(page).to have_content("First name can't be blank")
+      expect(page).to have_content("Last name can't be blank")
+      expect(page).to have_content("Description can't be blank")
+      expect(page).to have_content("Subject can't be blank")
+      expect(page).to have_content("Email does not appear to be valid")
     end
   end
 

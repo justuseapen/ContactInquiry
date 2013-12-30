@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :inquiry do
-    email "MyString"
+    email "thisvalid@email.com"
     subject "MyString"
     description "MyText"
     first_name "MyString"
